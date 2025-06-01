@@ -84,23 +84,27 @@ include("config.php");
 
     <!-- Register -->
     <?php
-     if(isset($_POST["btn-register"])){
-        $fname= $_POST["fname"];
-        $lname= $_POST["lname"];
-        $email= $_POST["email"];
-        $password= password_hash($_POST["password"],PASSWORD_BCRYPT);
-        $phone= $_POST["phone"];
-        $role= $_POST["role"];
-        $roll= $_POST["roll"];
-        $course= $_POST["course"];
-        $subject= $_POST["subject"];
-$query = "INSERT INTO users(firstname,lastname,phone,email,password,role,roll,course,subject)VALUES('$fname','$lname','$phone','$email','$password','$role','$roll','$course','$subject')";
+    if(isset($_POST["btn-register"])){
+        $fname = $_POST['fname'];
+        $lname =$_POST['lname'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
+        $role = $_POST['role'];
+        $roll = $_POST['roll'];
+        $course = $_POST['course'];
+        $subject = $_POST['subject'];
+$query= "INSERT INTO users(firstname,lastname,phone,email,password,role,roll,course,subject)VALUES('$fname','$lname','$phone','$email','$password','$role','$roll','$course','$subject')";
 $data = mysqli_query($conn,$query);
+
 if($data){
-   header("Location : login.php");
-   exit;
+    header("Location: login.php");
+    exit;
+}else{
+    echo"Not Register...";
 }
-     }
+
+    }
      ?>
 
     <script>
