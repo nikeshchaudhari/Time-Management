@@ -38,7 +38,7 @@ if($data){
     <section>
         <div class="container-fluid  ">
             <div class="row">
-                <div class="col-2 side-bar d-md-none d-lg-block ">
+                <div class="col-3 side-bar d-md-none d-lg-block ">
                     <h4 class="text-center">Dashboard</h4>
                     <hr>
                     <a href="#"><i class="fa-solid fa-house"></i>Home</a>
@@ -47,23 +47,40 @@ if($data){
                     <a href="#"><i class="fa-regular fa-eye"></i> View Assignment </a>
                     <a href="../logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout </a>
                 </div>
-                <div class="col-9 wrapper">
-                    <h2 class="text-center mt-3 text-md-center">Welcome, <?php echo $_SESSION["firstname"];?></h2>
-                    <div class="card text-white mb-3 mt-4 ad-card" style="max-width: 18rem;">
-                        <div class="card-header text-center fs-1 user-count">
-                            <i class="fa-solid fa-user"></i>
+                <div class="col-9">
+                    <h4 class=" text-center mt-4 fs-1">WELCOME, <?php echo $_SESSION["firstname"] ?></h4>
+                    <div class="dashboard-card">
+                        <div class="card text-white mb-3 add-card" style="width:300px">
+                            <div class="card-header text-center">
+                                <h4>Admin</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">trytrytry</h5>
+                            </div>
                         </div>
-                        <div class="card-body user-count">
-                            <h4 class="card-title text-center"><?php echo $total_users?></h4>
+                        <div class="card text-white mb-3 add-card1" style="width:300px">
+                            <div class="card-header text-center">
+                                <h4>Users</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                            </div>
+                        </div>
+                        <div class="card text-white mb-3 add-card2" style="width:300px">
+                            <div class="card-header text-center">
+                                <h4>Total Subject</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                            </div>
+                        </div>
 
-                        </div>
                     </div>
-                   
-
-
-
-
+                </div>
             </div>
+
+
+        </div>
         </div>
 
 
