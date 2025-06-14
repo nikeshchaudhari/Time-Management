@@ -60,8 +60,8 @@ if($dat_subject){
                     <hr>
                     <a href="dashboard.php"><i class="fa-solid fa-house"></i>Home</a>
                     <a href="add_assignment.php"><i class="fa-solid fa-plus"></i> Add Assignment</a>
-                    <a href="#"> <i class="fa-regular fa-calendar-days"></i> Class Shedule </a>
-                    <a href="#"><i class="fa-regular fa-eye"></i> View Assignment </a>
+                    <a href="shedule.php"> <i class="fa-regular fa-calendar-days"></i> Class Shedule </a>
+                    <a href="view_assignment.php"><i class="fa-regular fa-eye"></i> View Assignment </a>
                     <a href="../logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout </a>
                 </div>
                 <div class="col-9">
