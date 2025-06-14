@@ -7,14 +7,31 @@ if(!isset($_SESSION['id'])|| ($_SESSION['role']) != 'teacher'){
     exit;
 }
 
-$query ="SELECT COUNT(*) AS total_users FROM users";
-$data = mysqli_query($conn,$query);
-$result = mysqli_fetch_assoc($data);
+// admin count
+$query_admin ="SELECT COUNT(*) AS total_users FROM users WHERE role='teacher'";
+$data_admin = mysqli_query($conn,$query_admin);
+$result_admin = mysqli_fetch_assoc($data_admin);
 
-if($data){
-    $total_users = $result['total_users'];
+if($data_admin){
+    $total_users = $result_admin['total_users'];
 }
 
+// User count
+$query_users = "SELECT COUNT(*)AS user_count FROM users WHERE role='student'";
+$data_user = mysqli_query($conn,$query_users);
+$result_user = mysqli_fetch_assoc($data_user);
+
+if($data_user){
+    $user_count = $result_user['user_count'];
+}
+
+// total subject count
+$query_subject = "SELECT COUNT(DISTINCT subject) AS count_subject FROM users WHERE subject IS NOT NULL AND subject != '' ";
+$dat_subject = mysqli_query($conn,$query_subject);
+$result_subject = mysqli_fetch_assoc($dat_subject);
+if($dat_subject){
+    $total_sub = $result_subject['count_subject'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -41,8 +58,8 @@ if($data){
                 <div class="col-3 side-bar d-md-none d-lg-block ">
                     <h4 class="text-center">Dashboard</h4>
                     <hr>
-                    <a href="#"><i class="fa-solid fa-house"></i>Home</a>
-                    <a href="#"><i class="fa-solid fa-plus"></i> Add Assignment</a>
+                    <a href="dashboard.php"><i class="fa-solid fa-house"></i>Home</a>
+                    <a href="add_assignment.php"><i class="fa-solid fa-plus"></i> Add Assignment</a>
                     <a href="#"> <i class="fa-regular fa-calendar-days"></i> Class Shedule </a>
                     <a href="#"><i class="fa-regular fa-eye"></i> View Assignment </a>
                     <a href="../logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout </a>
@@ -55,7 +72,9 @@ if($data){
                                 <h4>Admin</h4>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">trytrytry</h5>
+                                <h5 class="card-title text-center">
+                                    <?php echo $total_users?>
+                                </h5>
                             </div>
                         </div>
                         <div class="card text-white mb-3 add-card1" style="width:300px">
@@ -63,7 +82,7 @@ if($data){
                                 <h4>Users</h4>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title"></h5>
+                                <h5 class="card-title text-center"><?php echo $user_count?></h5>
                             </div>
                         </div>
                         <div class="card text-white mb-3 add-card2" style="width:300px">
@@ -71,7 +90,7 @@ if($data){
                                 <h4>Total Subject</h4>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title"></h5>
+                                <h5 class="card-title text-center"><?php echo $total_sub?></h5>
                             </div>
                         </div>
 
